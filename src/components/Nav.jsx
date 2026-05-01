@@ -2,8 +2,10 @@
 import { Link, Button } from "@heroui/react";
 import ThemingSwitch from "./ThemingSwitch";
 import { signOut, useSession } from "@/lib/auth-client";
+import { usePathname } from "next/navigation";
 
 export default function nav() {
+  let path = usePathname();
   let { data, isPending } = useSession();
   let user = data?.user;
   // console.log(user, isPending);
@@ -11,22 +13,76 @@ export default function nav() {
   let li = (
     <>
       <li>
-        <Link href="/">Home</Link>
+        <Link
+          className={
+            path === "/"
+              ? "border-b-2  border-green-500 rounded-none no-underline"
+              : "no-underline"
+          }
+          href="/"
+        >
+          Home
+        </Link>
       </li>
       <li>
-        <Link href="wanteat">Do you Want to Eat</Link>
+        <Link
+          className={
+            path === "/wanteat"
+              ? "border-b-2  border-green-500 rounded-none no-underline"
+              : "no-underline"
+          }
+          href="/wanteat"
+        >
+          Do you Want to Eat
+        </Link>
       </li>
       <li>
-        <Link href="lentil">Lentil</Link>
+        <Link
+          className={
+            path === "/lentil"
+              ? "border-b-2  border-green-500 rounded-none no-underline"
+              : "no-underline"
+          }
+          href="/lentil"
+        >
+          Lentil
+        </Link>
       </li>
       <li>
-        <Link href="meat">Meat</Link>
+        <Link
+          className={
+            path === "/meat"
+              ? "border-b-2  border-green-500 rounded-none no-underline"
+              : "no-underline"
+          }
+          href="/meat"
+        >
+          Meat
+        </Link>
       </li>
       <li>
-        <Link href="sold">Sold</Link>
+        <Link
+          className={
+            path === "/sold"
+              ? "border-b-2  border-green-500 rounded-none no-underline"
+              : "no-underline"
+          }
+          href="/sold"
+        >
+          Sold
+        </Link>
       </li>
       <li>
-        <Link href="rice">Rice</Link>
+        <Link
+          className={
+            path === "/rice"
+              ? "border-b-2  border-green-500 rounded-none no-underline"
+              : "no-underline"
+          }
+          href="/rice"
+        >
+          Rice
+        </Link>
       </li>
     </>
   );
